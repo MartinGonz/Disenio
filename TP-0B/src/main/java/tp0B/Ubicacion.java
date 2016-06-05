@@ -1,17 +1,18 @@
 package tp0B;
 
+//El numero de la calle tiene que comenzar en 1
 public class Ubicacion {
-	String calle;
-	int numero;
-	String[] entreCalles = new String[2];
-	int piso;
-	int depto;
-	int unidad; //tipo de dato OK?
-	int codigoPostal;
-	String localidad;
-	String barrio;
-	String provincia;
-	String pais;
+	private String calle;
+	private int numero;
+	private String[] entreCalles = new String[2];
+	private int piso;
+	private int depto;
+	private int unidad; //tipo de dato OK?
+	private int codigoPostal;
+	private String localidad;
+	private String barrio;
+	private String provincia;
+	private String pais;
 	
 	public Ubicacion(String calle, int numero, String calle1, String calle2, int piso, int depto, int unidad,
 					 int codigoPostal, String localidad, String barrio, String provincia, String pais){
@@ -28,5 +29,18 @@ public class Ubicacion {
 		this.provincia = provincia;
 		this.pais = pais;
 		
+	}
+	
+	public Ubicacion(String calle, int numero){
+		this.calle = calle;
+		this.numero = numero;
+	}
+	
+	String getCalle(){
+		return calle;
+	}
+	
+	int getNumero(){
+		return numero;
 	}
 }
