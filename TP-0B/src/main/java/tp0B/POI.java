@@ -53,7 +53,7 @@ public abstract class POI {
 	
 	public boolean estaAMenosDe(double metros, POI unPOI){
 		final GeodeticCalculator calc = new GeodeticCalculator();
-		final Point2D estePOI = new Point2D.Double(this.getCoordenadas().getLatitud(), this.getCoordenadas().getLongitud()); //acá va el getCoordenadas() o directamente coordenadas?
+		final Point2D estePOI = new Point2D.Double(this.getCoordenadas().getLatitud(), this.getCoordenadas().getLongitud()); 
 	    final Point2D otroPOI = new Point2D.Double(unPOI.getCoordenadas().getLatitud(), unPOI.getCoordenadas().getLongitud());
 	    calc.setStartingGeographicPoint(estePOI);
 	    calc.setDestinationGeographicPoint(otroPOI);
@@ -64,8 +64,10 @@ public abstract class POI {
 	    return false;
 	}
 	
-	//seria un boolean. pero con el constructor esto ya no estaria cubierto?
-	public void esValido(){
-		
+	public boolean esValido(){
+		if(getNombre()== null || !(getCoordenadas().esValida(getCoordenadas().getLatitud(), getCoordenadas().getLongitud()))){
+			return false;
+		}
+		return true;
 	}
 }

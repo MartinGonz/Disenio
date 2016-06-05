@@ -27,5 +27,12 @@ public class ParadaColectivoTest {
 		String tipoDePOI = paradaMozart.getTipo();
 		Assert.assertEquals("Parada de colectivo", tipoDePOI);
 	}
+	
+	@Test
+	public void paradaMozartEsValida(){
+		boolean validez = paradaMozart.esValido();
+		Assert.assertTrue(validez);
+		
+	}
 
 }

@@ -1,6 +1,5 @@
 package tp0B;
 
-//El numero de la calle tiene que comenzar en 1
 public class Ubicacion {
 	private String calle;
 	private int numero;
