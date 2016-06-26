@@ -9,6 +9,9 @@ public abstract class POI {
 	private String nombre;
 	private String descripcion;
 	private String tipo;
+	private int cercania = 5; //NUEVO
+	public int cuadra = 100; //NUEVO. esto tendriamos que levantarlo de un archivo de configuracion 
+	public Ciudad ciudad; //NUEVO. tmb deberia levantarlo creo.
 	
 	Coordenadas getCoordenadas(){
 		return coordenadas;
@@ -34,6 +37,11 @@ public abstract class POI {
 		this.tipo = tipo;
 	}
 	
+	//NUEVO
+	void setCercania(int cantCuadras){
+		this.cercania = cuadra * cantCuadras;
+	}
+	
 	public POI(String nombre, String descripcion, double latitud, double longitud,
 			   String calle, int numero, String calle1, String calle2, int piso, int depto, int unidad,
 			   int codigoPostal, String localidad, String barrio, String provincia, String pais){ 
@@ -44,6 +52,7 @@ public abstract class POI {
 				 					   codigoPostal, localidad, barrio, provincia, pais);
 		
 	}
+	
 	
 	public POI(String nombre, double latitud, double longitud, String calle, int numero){
 		this.nombre = nombre;
@@ -69,5 +78,19 @@ public abstract class POI {
 			return false;
 		}
 		return true;
+	}
+	
+	//NUEVO
+	public boolean estaCerca(double latitud, double longitud){
+		final GeodeticCalculator calc = new GeodeticCalculator();
+		final Point2D estePOI = new Point2D.Double(this.getCoordenadas().getLatitud(), this.getCoordenadas().getLongitud()); 
+	    final Point2D terminal = new Point2D.Double(latitud, longitud);
+	    calc.setStartingGeographicPoint(estePOI);
+	    calc.setDestinationGeographicPoint(terminal);
+	    double distancia = calc.getOrthodromicDistance();
+	    if(distancia <= cercania){
+	    	return true;
+	    }
+	    return false;
 	}
 }

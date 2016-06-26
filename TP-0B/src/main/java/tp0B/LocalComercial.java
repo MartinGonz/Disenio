@@ -10,11 +10,15 @@ public class LocalComercial extends POI {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public LocalComercial(String nombre, double latitud, double longitud, String calle, int numero){
+	Rubro rubro;
+	
+	public LocalComercial(String nombre, double latitud, double longitud, String calle, int numero, Rubro rubro){
 		super(nombre, latitud, longitud, calle, numero);
+		this.rubro = rubro;
 	}
 	
 	{
 		setTipo("Local comercial");
+		setCercania(rubro.getCercania());
 	}
 }

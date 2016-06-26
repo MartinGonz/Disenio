@@ -8,11 +8,15 @@ public class ParadaColectivoTest {
 
 	private ParadaColectivo paradaMozart;
 	private ParadaColectivo paradaSaraza;
+	private double latitud;
+	private double longitud;
 	
 	@Before
 	public void inicializarEscenario(){
 		paradaMozart = new ParadaColectivo("Parada Mozart", -34.659928, -58.468346, "Mozart", 2392);
 		paradaSaraza = new ParadaColectivo("Parada Saraza", -34.660866, -58.467713, "Saraza", 4202);
+		latitud = -34.660866;
+		longitud = -58.467713;
 	}
 	
 	@Test
@@ -33,6 +37,10 @@ public class ParadaColectivoTest {
 		boolean validez = paradaMozart.esValido();
 		Assert.assertTrue(validez);
 		
+	}
+	@Test
+	public void estaCercaTest(){
+		Assert.assertTrue(paradaMozart.estaCerca(latitud, longitud));
 	}
 
 }

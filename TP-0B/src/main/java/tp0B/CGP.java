@@ -14,6 +14,12 @@ public class CGP extends POI {
 		super(nombre, latitud, longitud, calle, numero);
 	}
 	
+	public boolean estaCerca(double latitud, double longitud){
+		if(ciudad.estanEnLaMismaComuna(latitud, longitud, this.getCoordenadas().getLatitud(), this.getCoordenadas().getLongitud()))
+			return true;
+		return false;
+	}
+	
 	{
 		setTipo("CGP");
 	}

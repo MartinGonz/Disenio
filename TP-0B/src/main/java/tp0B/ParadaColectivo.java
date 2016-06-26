@@ -14,7 +14,7 @@ public class ParadaColectivo extends POI {
 	}
 	{
 		setTipo("Parada de colectivo");
-	
+		setCercania(1);
 	}
 }
 	
