@@ -42,11 +42,13 @@ public class Comuna {
 	}
 	
 	public void crearPoligono(){
-		GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
-		cargarArray();
-		LinearRing ring = geometryFactory.createLinearRing( coords );
-		LinearRing holes[] = null; // use LinearRing[] to represent holes
-		poligono = geometryFactory.createPolygon(ring, holes );
+		if(listaCoordenadas.size() > 4){
+			GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
+			cargarArray();
+			LinearRing ring = geometryFactory.createLinearRing( coords );
+			LinearRing holes[] = null; // use LinearRing[] to represent holes
+			poligono = geometryFactory.createPolygon(ring, holes );
+		}
 	}
 	
 	public void cargarArray(){

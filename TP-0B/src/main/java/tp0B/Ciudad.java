@@ -11,7 +11,7 @@ public class Ciudad {
 		this.nombre = nombre;
 	}
 	
-	List<Comuna> comunas = new ArrayList<Comuna>();
+	private List<Comuna> comunas = new ArrayList<Comuna>();
 	
 	public void agregarComuna(Comuna comuna){
 		comunas.add(comuna);
