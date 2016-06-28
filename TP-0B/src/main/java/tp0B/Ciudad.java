@@ -5,8 +5,10 @@ import java.util.List;
 
 public class Ciudad {
 
-	public Ciudad() {
-		// TODO Auto-generated constructor stub
+	private String nombre;
+	
+	public Ciudad(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	List<Comuna> comunas = new ArrayList<Comuna>();
@@ -18,7 +20,7 @@ public class Ciudad {
 	public Comuna getComuna(double latitud, double longitud){
 		Comuna comuna;
 		int i = 0;
-		while(comunas.get(i).estaAqui(latitud, longitud)){
+		while(!comunas.get(i).estaAqui(latitud, longitud)){
 			i++;
 		}
 		comuna = comunas.get(i);

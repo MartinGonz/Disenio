@@ -42,5 +42,6 @@ public class ParadaColectivoTest {
 	public void estaCercaTest(){
 		Assert.assertTrue(paradaMozart.estaCerca(latitud, longitud));
 	}
-
+		
+	
 }

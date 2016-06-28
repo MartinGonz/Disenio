@@ -11,8 +11,9 @@ public class Comuna {
 	
 	private String nombre;
 	private Polygon poligono;
-	public Comuna() {
-		// TODO Auto-generated constructor stub
+	
+	public Comuna(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	public String getNombre(){
