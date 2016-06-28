@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
+
+
 public class CGP extends POI {
 
 //	public CGP(String nombre, String descripcion, double latitud, double longitud, String calle, int numero,
@@ -21,12 +23,6 @@ public class CGP extends POI {
 	public CGP(String nombre, double latitud, double longitud, String calle, int numero){
 		super(nombre, latitud, longitud, calle, numero);
 		setTipo("CGP");
-	}
-	
-	public boolean estaCerca(double latitud, double longitud){
-		if(ciudad.estanEnLaMismaComuna(latitud, longitud, this.getCoordenadas().getLatitud(), this.getCoordenadas().getLongitud()))
-			return true;
-		return false;
 	}
 	
 	public void agregarServicio(String nombreServicio){
@@ -57,6 +53,12 @@ public class CGP extends POI {
 			if(servicio.contiene(momento))
 				return true;
 		}
+		return false;
+	}
+	
+	public boolean estaCerca(double latitud, double longitud){
+		if(ciudad.estanEnLaMismaComuna(latitud, longitud, this.getCoordenadas().getLatitud(), this.getCoordenadas().getLongitud()))
+			return true;
 		return false;
 	}
 	
