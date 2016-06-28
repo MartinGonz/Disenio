@@ -1,22 +1,20 @@
-package tp0B;
+package ar.edu.utn.dds.poi.test;
 
-import org.junit.Before;
-import org.junit.Test;
 import org.joda.time.DateTime;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
-public class LocalComercialTest {
+import ar.edu.utn.dds.poi.model.Rubro;
 
-	private Rubro libreriaEscolar;
-	private LocalComercial libreriaPapiro;
+public class RubroTest {
+
 	private Rubro carrousel;
-	private LocalComercial unaCalesita;
 	DateTime prueba;
+	DateTime prueba2;
 	
 	@Before
 	public void inicializarEscenario(){
-		libreriaEscolar = new Rubro(5);
-		libreriaPapiro = new LocalComercial("Papiro", -34.659928, -58.468346, "Mozart", 2392, carrousel);
 		carrousel = new Rubro(7);
 		carrousel.agregarIntervalo("lunes", 10, 00, 13, 00);
 		carrousel.agregarIntervalo("lunes", 17, 00, 20, 30);
@@ -30,13 +28,23 @@ public class LocalComercialTest {
 		carrousel.agregarIntervalo("viernes", 17, 00, 20, 30);
 		carrousel.agregarIntervalo("sábado", 10, 00, 13, 00);
 		carrousel.agregarIntervalo("sábado", 17, 00, 20, 30);
-		unaCalesita = new LocalComercial("Calesita Feliz", -34.659928, -58.468346, "Mozart", 2392, carrousel);
 		prueba = new DateTime(2016, 6, 27, 11, 00); //un lunes
+		prueba2 = new DateTime(2016, 6, 27, 15, 00); //un lunes
 	}
 	
 	@Test
 	public void estaDisponibleTest(){
-		Assert.assertTrue(unaCalesita.estaDisponible(prueba));
+		Assert.assertTrue(carrousel.contiene(prueba));
 	}
-
+	
+	@Test
+	public void cantidadIntervalosTest(){
+		int cantidadIntervalos = carrousel.cantidadIntervalos();
+		Assert.assertEquals(12, cantidadIntervalos);
+	}
+	
+	@Test
+	public void estaDisponible2Test(){
+		Assert.assertFalse(carrousel.contiene(prueba2));	
+	}
 }

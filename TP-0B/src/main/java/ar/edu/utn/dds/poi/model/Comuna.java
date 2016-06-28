@@ -1,4 +1,4 @@
-package tp0B;
+package ar.edu.utn.dds.poi.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +27,18 @@ public class Comuna {
 	}
 	
 	public boolean estaAqui(double latitud, double longitud){
-	    GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
-	    Coordinate coord = new Coordinate(latitud, longitud);
-	    Point terminal = geometryFactory.createPoint(coord);
-		if(poligono.contains(terminal))
-			return true;
-		return false;
+		
+		    GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
+		    Coordinate coord = new Coordinate(latitud, longitud);
+		    Point terminal = geometryFactory.createPoint(coord);
+		    try{
+			    if(this.poligono.contains(terminal))
+					return true;
+				return false;
+		    } catch(Exception e){
+		    	e.printStackTrace();
+		    	return false;
+		    }
 	}
 	
 	public void agregarPuntoAPoligono(double latitud, double longitud){
@@ -47,7 +53,7 @@ public class Comuna {
 			cargarArray();
 			LinearRing ring = geometryFactory.createLinearRing( coords );
 			LinearRing holes[] = null; // use LinearRing[] to represent holes
-			poligono = geometryFactory.createPolygon(ring, holes );
+			this.poligono = geometryFactory.createPolygon(ring, holes );
 		}
 	}
 	

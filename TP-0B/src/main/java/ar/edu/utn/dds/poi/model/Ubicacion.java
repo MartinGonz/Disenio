@@ -1,4 +1,4 @@
-package tp0B;
+package ar.edu.utn.dds.poi.model;
 
 public class Ubicacion {
 	private String calle;

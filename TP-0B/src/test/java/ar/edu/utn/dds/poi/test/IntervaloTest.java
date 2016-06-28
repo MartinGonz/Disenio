@@ -1,7 +1,10 @@
-package tp0B;
+package ar.edu.utn.dds.poi.test;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import ar.edu.utn.dds.poi.model.Intervalo;
+
 import org.joda.time.DateTime;
 import org.junit.Assert;
 

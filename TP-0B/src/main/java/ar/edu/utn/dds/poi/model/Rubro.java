@@ -1,4 +1,4 @@
-package tp0B;
+package ar.edu.utn.dds.poi.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,17 +6,17 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
-public class Servicio {
-	
-	private String nombre;
+public class Rubro {
+
+	private int cercania;
 	private List<Intervalo> intervalos = new ArrayList<Intervalo>();
 
-	public Servicio(String nombre) {
-		this.nombre = nombre;
+	public Rubro(int cercania) {
+		this.cercania = cercania;
 	}
 	
-	public String getNombre(){
-		return nombre;
+	public int getCercania(){
+		return cercania;
 	}
 	
 	public void agregarIntervalo(String dia, int horaDesde, int minutoDesde, int horaHasta, int minutoHasta){
@@ -25,13 +25,20 @@ public class Servicio {
 	}
 	
 	public boolean contiene(DateTime momento){
+		boolean contiene = false;
 		Iterator<Intervalo> iter = intervalos.iterator();
 		Intervalo intervalo;
 		while (iter.hasNext()){
 			intervalo = iter.next();
-			if(intervalo.contiene(momento))
+			contiene = intervalo.contiene(momento);
+			if(contiene)
 				return true;
 		}
-		return false;
+		return contiene;
+	}
+	
+	public int cantidadIntervalos(){
+		int tamanio = intervalos.size();
+		return tamanio;
 	}
 }

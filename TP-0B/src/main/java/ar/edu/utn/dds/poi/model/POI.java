@@ -1,4 +1,4 @@
-package tp0B;
+package ar.edu.utn.dds.poi.model;
 
 import org.geotools.referencing.GeodeticCalculator;
 import java.awt.geom.Point2D;
@@ -9,7 +9,7 @@ public abstract class POI {
 	private String nombre;
 	private String descripcion;
 	private String tipo;
-	private int cercania = 5; //NUEVO
+	private int cercania = 500; //NUEVO
 	public int cuadra = 100; //NUEVO. esto tendriamos que levantarlo de un archivo de configuracion 
 	public Ciudad ciudad; //NUEVO. tmb deberia levantarlo creo.
 	
@@ -29,7 +29,7 @@ public abstract class POI {
 		return descripcion;
 	}
 	
-	String getTipo(){
+	public String getTipo(){
 		return tipo;
 	}
 	
@@ -42,16 +42,16 @@ public abstract class POI {
 		this.cercania = cuadra * cantCuadras;
 	}
 	
-	public POI(String nombre, String descripcion, double latitud, double longitud,
-			   String calle, int numero, String calle1, String calle2, int piso, int depto, int unidad,
-			   int codigoPostal, String localidad, String barrio, String provincia, String pais){ 
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.coordenadas = new Coordenadas(latitud, longitud);
-		this.ubicacion = new Ubicacion(calle, numero, calle1, calle2, piso, depto, unidad,
-				 					   codigoPostal, localidad, barrio, provincia, pais);
-		
-	}
+//	public POI(String nombre, String descripcion, double latitud, double longitud,
+//			   String calle, int numero, String calle1, String calle2, int piso, int depto, int unidad,
+//			   int codigoPostal, String localidad, String barrio, String provincia, String pais){ 
+//		this.nombre = nombre;
+//		this.descripcion = descripcion;
+//		this.coordenadas = new Coordenadas(latitud, longitud);
+//		this.ubicacion = new Ubicacion(calle, numero, calle1, calle2, piso, depto, unidad,
+//				 					   codigoPostal, localidad, barrio, provincia, pais);
+//		
+//	}
 	
 	
 	public POI(String nombre, double latitud, double longitud, String calle, int numero){

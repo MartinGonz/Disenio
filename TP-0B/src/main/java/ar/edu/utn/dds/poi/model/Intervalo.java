@@ -1,4 +1,4 @@
-package tp0B;
+package ar.edu.utn.dds.poi.model;
 
 import java.time.LocalTime;
 import org.joda.time.DateTime;
