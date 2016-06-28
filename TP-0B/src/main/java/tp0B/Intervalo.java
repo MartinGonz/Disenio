@@ -25,7 +25,7 @@ public class Intervalo {
 	public boolean compararDia(DateTime momento){
 		DateTime.Property pDoW = momento.dayOfWeek();
 		String diaSemana = pDoW.getAsText();
-		if(dia == diaSemana)
+		if(dia.equals(diaSemana))
 			return true;
 		return false;
 	}
